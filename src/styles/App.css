@@ -1,0 +1,202 @@
+:root
+{
+    --secondary-color: #1f1f1f; /* Dark Blue */
+    --accent-color: #aa8c28; /* Yellow */
+    --text-color: #000000; /* Light Gray */
+    --background-color: #ffffff; /* Dark Gray */
+}
+
+
+*
+{
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+html
+{
+    scroll-behavior: smooth;
+    background-color: var(--background-color, black)
+}
+
+.page-container
+{
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+    position: relative;
+    align-items: center;
+}
+
+.content
+{
+    flex: 1;
+    width: 100%;
+    max-width: 900px;
+    margin: 0 auto;
+    position: relative;
+}
+
+.flower-pattern-border
+{
+    position: absolute;
+    top: 0;
+    left: 0px;
+    width: 90px;
+    height: 100%;
+    background-image: url("../../public/images/flowers.jpg");
+    background-size: contain;
+    background-repeat: repeat-y;
+    opacity: 0.5;
+    z-index: -1;
+    transition: opacity 0.3s ease;
+}
+
+.flower-pattern-border.right
+{
+    left: auto;
+    right: 0;
+
+}
+
+.page-divider
+{
+    background-image: url("../../public/images/page-divider.png");
+    width: 100%;
+    height: 50px;
+    margin: 20px 0;
+    width: 100%;
+    background-position: center;
+    background-size: contain;
+    background-repeat: no-repeat;
+    margin: 90px 0;
+}
+
+.centred-text
+{
+    align-self: center;
+    text-align: center;
+}
+
+
+.button-container
+{
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+    margin-top: 15px;
+}
+
+.button-container.push-right
+{
+    justify-content: flex-end;
+}
+
+.button-container.push-left
+{
+    justify-content: flex-start;
+}
+
+
+h1, h2, h3
+{
+    padding: 10px 0;
+    font-family: "PlatinumIvory", sans-serif;
+    font-weight: lighter;
+}
+
+a
+{
+    font-family: "QuickSand", sans-serif;
+    text-decoration: none;
+    color: var(--accent-color, #d1d1d1);
+}
+
+p, li
+{
+    font-family: "QuickSand", sans-serif;
+    font-size: 0.9rem;
+    color: var(--text-color, white);
+    opacity: 0.7;
+}
+
+input, textarea
+{
+    font-family: "QuickSand", sans-serif;
+    font-size: 1rem;
+    color: var(--text-color, rgb(0, 0, 0));
+    background-color: transparent;
+    border: none;
+    outline: none;
+    border-bottom: 1px solid rgb(0, 0, 0);
+    padding: 8px;
+}
+
+label
+{
+    font-family: "QuickSand", sans-serif;
+    color: var(--text-color, black);
+}
+
+button
+{
+    font-family: "QuickSand", sans-serif;
+    font-size: 0.7rem;
+    color: var(--text-color, black);
+    background-color: transparent;
+    border: none;
+    outline: none;
+    border: 1px solid var(--text-color);
+    border-radius: 0px;
+    padding: 6px 12px;
+    cursor: pointer;
+    width: fit-content;
+}
+
+button:disabled
+{
+    opacity: 0.5;
+    cursor: not-allowed;
+}
+
+
+@font-face {
+    font-family: "PlatinumIvory";
+    src: url("../../public/fonts/PlatinumIvory.ttf") format("truetype");
+}
+
+@font-face {
+    font-family: "QuickSand";
+    src: url("../../public/fonts/QuickSand.ttf") format("truetype");
+}
+
+@font-face {
+    font-family: "Montserrat";
+    src: url("../../public/fonts/Montserrat.ttf") format("truetype");
+}
+
+@font-face {
+    font-family: "Lucinda";
+    src: url("../../public/fonts/Lucinda Script.ttf") format("truetype");
+    font-weight: light;
+}
+
+@font-face {
+    font-family: "Kugile";
+    src: url("../../public/fonts/Kugile.ttf") format("truetype");
+    font-weight: normal;
+}
+
+@font-face {
+    font-family: "Edges";
+    src: url("../../public/fonts/Edges.ttf") format("truetype");
+    font-weight: bold;
+}
+
+@media (max-width: 1250px) {
+    .flower-pattern-border
+    {
+        opacity: 0;
+    }
+}

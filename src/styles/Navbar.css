@@ -1,0 +1,62 @@
+
+.navbar {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 0 24px;
+    width: 100%;
+    z-index: 10;
+    margin-bottom: 70px;
+    margin-top: 30px;
+}
+
+.logo
+{
+    width: 180px;
+}
+
+.nav-top
+{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-bottom: 30px;
+    gap: 3px;
+}
+
+.nav-top p
+{
+    font-size: 0.8rem;
+    color: var(--text-color, black);
+}
+
+.navbar .home-link
+{
+    font-size: 3rem;
+}
+
+.navbar-section {
+    display: flex;
+    align-items: center;
+    gap: 36px;
+}
+
+
+.navbar a
+{
+    color: var(--text-color, black);
+    font-size: 1rem;
+    text-wrap: nowrap;
+}
+
+.navbar-section a.active {
+    text-decoration: underline;
+    text-underline-offset: 6px;
+}
+
+.navbar a:hover
+{
+    color: var(--accent-color, #d1d1d1);
+}
