@@ -198,6 +198,7 @@ input, textarea, select
     border-bottom: 1px solid rgb(0, 0, 0);
     padding: 8px;
     padding-left: 0px;
+    border-radius: 0px !important;
 }
 
 label
@@ -210,12 +211,13 @@ button
 {
     font-family: "QuickSand", sans-serif;
     font-size: 0.7rem;
+    font-weight: lighter !important;
     color: var(--text-color, black);
     background-color: transparent;
     border: none;
     outline: none;
     border: 1px solid var(--text-color);
-    border-radius: 0px;
+    border-radius: 0px !important;
     padding: 6px 12px;
     cursor: pointer;
     width: fit-content;
