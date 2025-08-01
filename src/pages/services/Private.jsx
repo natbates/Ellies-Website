@@ -2,6 +2,7 @@ import "../../styles/Services.css";
 import { useNavigate } from "react-router-dom";
 import { useTranslation } from "react-i18next";
 import useInView from "../../hooks/useInView";
+import Contact from "../Contact";
 
 const Private = () => {
     const { t } = useTranslation();
@@ -24,7 +25,7 @@ const Private = () => {
                         <li>{t("private_daily_list_5")}</li>
                         <li>{t("private_daily_list_6")}</li>
                     </ul>
-                    <button onClick={() => {navigate("/contact")}}>{t("private_enquire_button")}</button>
+                    <button See onClick={() => {navigate("/gallery?type=private")}}>{t("private_enquire_button")}</button>
                 </div>
                 <img
                     className={`service-package-img service-anim${visible ? " service-anim-visible service-anim-delay-3" : ""}`}
@@ -45,7 +46,7 @@ const Private = () => {
                         <li>{t("private_extended_list_5")}</li>
                         <li>{t("private_extended_list_6")}</li>
                     </ul>
-                    <button onClick={() => {navigate("/contact")}}>{t("private_enquire_button")}</button>
+                    <button See onClick={() => {navigate("/gallery?type=private")}}>{t("private_enquire_button")}</button>
                 </div>
 
                 <img
@@ -54,6 +55,9 @@ const Private = () => {
                     alt="service Content Example"
                 />
             </div>
+
+            <Contact default_value={"private-event"} />
+
         </div>
     );
 };

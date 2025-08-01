@@ -3,12 +3,12 @@ import "../styles/Contact.css";
 import { useTranslation } from "react-i18next";
 import useInView from "../hooks/useInView";
 
-const Contact = () => {
+const Contact = ({ default_value }) => {
     const { t } = useTranslation();
     const [form, setForm] = useState({
         name: "",
         email: "",
-        enquiry: "",
+        enquiry: default_value || "",
         message: ""
     });
     const [submitting, setSubmitting] = useState(false);
@@ -103,7 +103,7 @@ const Contact = () => {
                     </div>
                 </form>
 
-                <div className={`contact-info contact-anim${visible ? " contact-anim-visible contact-anim-delay-7" : ""}`}>
+                <div className={`contact-info contact-anim${visible ? " contact-anim-visible contact-anim-delay-2" : ""}`}>
                     <h2>{t("contact_info_title")}</h2>
                     <p>{t("contact_info_email")}: <a href="mailto:Els.social.spark@gmail.com">Els.social.spark@gmail.com</a></p>
                     <p>{t("contact_info_phone")}: <a href="tel:+1234567890">+1 234 567 890</a></p>

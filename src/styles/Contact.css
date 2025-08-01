@@ -31,6 +31,11 @@
     gap: 10px;
 }
 
+.contact-intro
+{
+    margin-bottom: 30px;
+}
+
 .form-container .contact-info img
 {
     margin-top: auto;

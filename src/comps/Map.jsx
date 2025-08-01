@@ -19,7 +19,8 @@ const MapComponent = () => {
       });
 
       L.tileLayer(
-        "https://{s}.basemaps.cartocdn.com/light_all/{z}/{x}/{y}.png"
+        "https://{s}.basemaps.cartocdn.com/rastertiles/voyager/{z}/{x}/{y}.png",
+        { attribution: '&copy; <a href="https://carto.com/">CARTO</a>' }
       ).addTo(map);
 
       // Cleanup the map when the component is unmounted

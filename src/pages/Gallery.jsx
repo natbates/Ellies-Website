@@ -6,6 +6,7 @@ import { fetchImages } from "../apis/fetch-images.js";
 import { useNotification } from "../contexts/NotificationContext.jsx";
 import { useTranslation } from "react-i18next";
 import useInView from "../hooks/useInView";
+import { useLocation } from "react-router-dom";
 
 const galleryTypes = [
     { key: "all", label: "All" },
@@ -18,7 +19,12 @@ const galleryTypes = [
 const IMAGES_PER_PAGE = 26;
 
 const Gallery = () => {
-    const [selected, setSelected] = useState("all");
+
+    const location = useLocation();
+    const params = new URLSearchParams(location.search);
+    const initialType = params.get("type") || "all";
+
+    const [selected, setSelected] = useState(initialType);
     const [page, setPage] = useState(1);
     const { user } = useAuth();
     const [uploading, setUploading] = useState(false);

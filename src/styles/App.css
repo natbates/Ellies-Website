@@ -221,13 +221,6 @@ button
     width: fit-content;
 }
 
-img, .map
-{
-    /* outline: 1px solid rgba(0, 0, 0, 0.233);
-    outline-offset: 4px;
-    outline-style: solid !important; */
-    border-radius: 0px !important;
-}
 
 button:disabled
 {
@@ -268,43 +261,28 @@ button:disabled
     font-weight: bold;
 }
 
-@media (max-width: 1150px) {
-    .flower-pattern-border
-    {
-        opacity: 0;
-    }
-}
-
-@media (max-width: 600px) { 
+@media (max-width: 1210px) {
     .flower-pattern-border
     {
         display: none;
-        width: 120px;
-        left: -80px;
-        z-index: -12;
+    }
+}
+
+@media (max-width: 916px) {
+    .content
+    {
+        padding: 0px 20px;
     }
 
-    .flower-pattern-border.right
+    .footer
     {
-        right: -80px;
-        height: calc(100% + 120px);
-        transform: translateY(-220px) scaleX(-1) rotate(180deg);
+        padding-left: 20px;
+        padding-right: 20px;
     }
+}
 
-    .page-container
-    {
-        padding: 0px 15px;
-    }
-    
-    .language-switcher
-    {
-        position: absolute !important;
-        top: 24px !important;
-        left: 15px !important;
-        border: none !important;
-    }
-
-    .about-container h2, .packages-title, .client-title, .contact-title, .contact-intro
+@media (max-width: 800px) {
+    .about-container h2
     {
         text-align: center;
     }
@@ -315,9 +293,17 @@ button:disabled
         flex-direction: column-reverse;
     }
 
+    .about-image
+    {
+        border-radius: 0px;
+        object-fit: cover;
+        object-position: center top;
+    }    
+    
     .about-text
     {
         gap: 40px;
+        align-items: center;
         text-align: center;
     }
 
@@ -326,38 +312,15 @@ button:disabled
         margin-top: 50px !important;
     }
 
-    .package-columns
-    {
-        gap: 60px;
-    }
-
-    .package-column h2
-    {
-        font-size: 1.2rem;
-        margin-top: 15px;
-    }
-
-    .clients-row-list
-    {
-        margin-top: 10px;
-    }
-
-    .client-row
-    {
-        flex-direction: column !important;
-        align-items: center;
-        gap: 24px;
-    }
-
-    .client-row img
-    {
-        width: 100%;
-    }
-
     .contact .form-container
     {
         flex-direction: column;
         gap: 20px;
+    }
+
+    .contact-info
+    {
+        padding-left: 0px !important;
     }
 
     .contact-form
@@ -378,6 +341,76 @@ button:disabled
     .contact-info img 
     {
         display: none;
+    }
+
+}
+
+@media (max-width: 600px) { 
+
+
+
+    .flower-pattern-border.right
+    {
+        right: -80px;
+        height: calc(100% + 120px);
+        transform: translateY(-220px) scaleX(-1) rotate(180deg);
+    }
+
+    .content
+    {
+        padding: 0 !important;
+    }
+
+    .page-container
+    {
+        padding: 0px 15px;
+    }
+    
+    .language-switcher
+    {
+        position: absolute !important;
+        top: 24px !important;
+        left: 15px !important;
+        border: none !important;
+    }
+
+    .packages-title, .client-title, .contact-title, .contact-intro
+    {
+        text-align: center;
+    }
+
+    .package-columns
+    {
+        gap: 60px;
+    }
+
+    .package-column h2
+    {
+        font-size: 1.2rem;
+        margin-top: 15px;
+    }
+
+    .client-photo
+    {
+        border-radius: 0px !important;
+        height: 180px !important;
+    }
+
+    .clients-row-list
+    {
+        margin-top: 20px;
+    }
+
+    .client-row
+    {
+        flex-direction: column !important;
+        align-items: center;
+        gap: 24px;
+    }
+
+    .client-row img
+    {
+        width: 100%;
     }
 
     .footer-content
@@ -455,11 +488,15 @@ button:disabled
 }
 
 .intro-anim-delay-1 {
-  transition-delay: 0.25s;
+  transition-delay: 0.3s;
 }
 
 .intro-anim-delay-2 {
   transition-delay: 0.5s;
+}
+
+.intro-anim-delay-3 {
+  transition-delay: 0.7s;
 }
 
 .about-anim {
@@ -501,6 +538,20 @@ button:disabled
 }
 .packages-anim-delay-3 {
   transition-delay: 0.65s;
+}
+
+.map-anim {
+    opacity: 0;
+    transform: translateY(40px);
+    transition: opacity 0.7s cubic-bezier(.4,0,.2,1), transform 0.7s cubic-bezier(.4,0,.2,1);
+    height: 500px;
+}
+.map-anim-visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+.map-anim-delay-2 {
+    transition-delay: 0.3s;
 }
 
 .clients-anim {

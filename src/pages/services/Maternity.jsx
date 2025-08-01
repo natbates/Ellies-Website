@@ -2,6 +2,7 @@ import "../../styles/Services.css";
 import { useNavigate } from "react-router-dom";
 import { useTranslation } from "react-i18next";
 import useInView from "../../hooks/useInView";
+import Contact from "../Contact";
 
 const Maternity = () => {
     const { t } = useTranslation();
@@ -15,7 +16,7 @@ const Maternity = () => {
             <div className="service-package-row">
                 <div className={`service-package-details service-anim${visible ? " service-anim-visible service-anim-delay-2" : ""}`}>
                     <h2>
-                        {t("maternity_package_title")} <span style={{ color: "#888", fontFamily: "QuickSand" }}>– {t("maternity_package_price")}</span>
+                        {t("maternity_package_title")} <span style={{ color: "#888", fontFamily: "QuickSand" }}>{t("maternity_package_price")}</span>
                     </h2>
                     <ul>
                         <li>{t("maternity_package_list_1")}</li>
@@ -25,7 +26,7 @@ const Maternity = () => {
                         <li>{t("maternity_package_list_5")}</li>
                         <li>{t("maternity_package_list_6")}</li>
                     </ul>
-                    <button onClick={() => {navigate("/contact")}}>{t("maternity_enquire_button")}</button>
+                    <button onClick={() => {navigate("/gallery?type=maternity")}}>{t("maternity_enquire_button")}</button>
                 </div>
                 <img
                     className={`service-package-img service-anim${visible ? " service-anim-visible service-anim-delay-3" : ""}`}
@@ -33,6 +34,7 @@ const Maternity = () => {
                     alt="service Content Example"
                 />
             </div>
+            <Contact default_value = {"maternity"} />
         </div>
     );
 };

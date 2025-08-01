@@ -22,6 +22,7 @@ const PageDivider = () => {
 const Intro = () => {
     const { t } = useTranslation();
     const [ref, visible] = useInView({ threshold: threshold });
+    const navigate = useNavigate();
 
     return (
         <div ref={ref} className={`intro-container fade-in${visible ? " visible" : ""}`}>
@@ -37,6 +38,9 @@ const Intro = () => {
                 <p className={`home-quote intro-anim${visible ? " intro-anim-visible intro-anim-delay-2" : ""}`}>
                     {t("home_quote")}
                 </p>
+                <button className={`cta_gallery intro-anim${visible ? " intro-anim-visible intro-anim-delay-3" : ""}`} onClick={() => navigate("/gallery")}>
+                    {t("home_cta")}
+                </button>
             </div>
         </div>
     );
@@ -143,14 +147,15 @@ const Location = () => {
         <div ref={ref} className={`location-container fade-in${visible ? " visible" : ""}`}>
             <h2 className={`location-title location-anim${visible ? " location-anim-visible" : ""}`}>{t("location_title")}</h2>
             <p className={`location-intro location-anim${visible ? " location-anim-visible location-anim-delay-1" : ""}`}>{t("location_intro")}</p>
-            <MapComponent />
+            <div className={`map-anim${visible ? " map-anim-visible map-anim-delay-2" : ""}`}>
+                <MapComponent />
+            </div>
             <div className={`location-text location-anim${visible ? " location-anim-visible location-anim-delay-2" : ""}`}>
                 <p>{t("location_text")}</p>
             </div>
         </div>
     );
 };
-
 const Clients = () => {
     const { t } = useTranslation();
     const [ref, visible] = useInView({ threshold: 0.2 });
@@ -167,7 +172,7 @@ const Clients = () => {
             text: t("client_2_feedback")
         },
         {
-            img: "../images/maternity/DSC01958.jpg",
+            img: "../images/fashion/DSC00272 copy.jpg",
             title: t("client_3_name"),
             text: t("client_3_feedback")
         }

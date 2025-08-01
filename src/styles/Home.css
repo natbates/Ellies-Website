@@ -183,6 +183,7 @@
     height: fit-content;
     object-fit: cover;
     height: 450px;
+    border-radius: 50%;
 }
 
 
@@ -285,8 +286,15 @@
     width: 180px;
     height: 180px;
     object-fit: cover;
-    border-radius: 16px;
-    box-shadow: 0 2px 12px rgba(0,0,0,0.08);
+    border-radius: 50%;
+    
+}
+
+@media (max-width: 900px) {
+    .client-photo {
+       height: 100%;
+    }
+    
 }
 
 .client-info {

@@ -1,6 +1,7 @@
 {
     "home_title": "Forever begins with a single beautiful moment captured",
     "home_quote": "Capturing the magic of weddings, maternity, and special events with a creative eye. Turning real moments into timeless, elegant photographs you'll cherish forever. Dedicated to making your memories last a lifetime.",
+    "home_cta": "View Gallery",
     "about_title": "Meet the Photographer",
     "about_section_1_title": "About Me",
     "about_section_1_text": "I'm a passionate photographer with a love for capturing life's most beautiful moments. With years of experience in weddings, maternity, and special events, I strive to create timeless images that tell your unique story.",
@@ -119,7 +120,7 @@
     "restaurants_3month_list_4": "Ongoing planning and marketing support",
     "restaurants_3month_list_5": "Custom content calendar for social media use",
     "restaurants_3month_list_6": "Priority editing and fast delivery",
-    "restaurants_enquire_button": "Enquire About This",
+    "restaurants_enquire_button": "See Examples",
 
     "weddings_title": "Weddings Content Packages",
     "weddings_intro": "Capture the magic of your special day with our tailored wedding photography packages. Whether you want a full day of coverage or just the essentials, we have options to suit every need and budget. Our goal is to create timeless, elegant photographs that you'll cherish forever.",
@@ -147,7 +148,7 @@
     "weddings_legacy_list_4": "Delivered via online gallery + external hard drive",
     "weddings_legacy_list_5": "1 more thing",
     "weddings_legacy_list_6": "Another 1 thing",
-    "weddings_enquire_button": "Enquire About This",
+    "weddings_enquire_button": "See Examples",
 
     "maternity_title": "Maternity Content Packages",
     "maternity_intro": "Capture the beauty of motherhood with our maternity content packages. We offer a range of services designed to document this special time in your life, from full content shoots to beautifully edited photos and videos. Whether you're looking for a single session or an extended package, we have options to suit your needs.",
@@ -159,7 +160,7 @@
     "maternity_package_list_4": "Social media optimised exports",
     "maternity_package_list_5": "Brand consultation & content planning call",
     "maternity_package_list_6": "Delivery within 7 days",
-    "maternity_enquire_button": "Enquire About This",
+    "maternity_enquire_button": "See Examples",
 
     "private_title": "Private Event Packages",
     "private_intro": "Our private event packages are designed to capture the essence of your special occasions, whether it's a birthday, anniversary, or any other milestone. We provide tailored photography and videography services to ensure that every moment is beautifully documented.",
@@ -179,6 +180,6 @@
     "private_extended_list_4": "Ongoing planning and marketing support",
     "private_extended_list_5": "Custom content calendar for social media use",
     "private_extended_list_6": "Priority editing and fast delivery",
-    "private_enquire_button": "Enquire About This"
+    "private_enquire_button": "See Examples"
 
 }
