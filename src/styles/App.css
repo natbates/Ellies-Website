@@ -86,7 +86,7 @@ html {
 .flower-pattern-border.right {
     left: auto;
     right: -60px;
-    height: calc(100% + 100px);
+    height: calc(100% + 200px);
     /* Add rotation for correct orientation */
     transform: translateY(-200px) scaleX(-1) rotate(180deg);
     animation: fly-in-right 0.5s ease-out forwards;
