@@ -41,8 +41,9 @@ const Navbar = () => {
                     aria-label="Close menu"
                     onClick={() => setOpen(false)}
                 >
-                    &times;
+                    <img src="./images/close.svg" alt="Close menu" />
                 </button>
+                {open && <NavLink to="/" className={({ isActive }) => isActive ? "active" : ""} onClick={handleNavClick}>{t("nav_home")}</NavLink>}
                 <NavLink to="/gallery" className={({ isActive }) => isActive ? "active" : ""} onClick={handleNavClick}>{t("nav_gallery")}</NavLink>
                 <NavLink to="/weddings" className={({ isActive }) => isActive ? "active" : ""} onClick={handleNavClick}>{t("nav_weddings")}</NavLink>
                 <NavLink to="/restaurants" className={({ isActive }) => isActive ? "active" : ""} onClick={handleNavClick}>{t("nav_restaurants")}</NavLink>
@@ -51,7 +52,8 @@ const Navbar = () => {
                 <NavLink to="/contact" className={({ isActive }) => isActive ? "active" : ""} onClick={handleNavClick}>{t("nav_contact")}</NavLink>
             </div>
 
-{open && <div className="navbar-overlay overlay-animate-in" onClick={() => setOpen(false)} />}        </nav>
+            {open && <div className="navbar-overlay overlay-animate-in" onClick={() => setOpen(false)} />}
+        </nav>
     );
 }
 

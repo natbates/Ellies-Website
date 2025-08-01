@@ -117,7 +117,7 @@ html {
 }
 
 .page-divider-delay {
-  transition-delay: 1s !important;
+  transition-delay: 0.2s !important;
 }
 
 .centred-text
@@ -219,6 +219,7 @@ button
     padding: 6px 12px;
     cursor: pointer;
     width: fit-content;
+    text-wrap: nowrap;
 }
 
 
@@ -529,6 +530,10 @@ button:disabled
 .packages-anim-visible {
   opacity: 1;
   transform: translateY(0);
+}
+
+.packages-anim-delay{
+    transition-delay: 0.15s;
 }
 .packages-anim-delay-1 {
   transition-delay: 0.25s;

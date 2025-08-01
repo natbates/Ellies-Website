@@ -6,7 +6,7 @@ import { useTranslation } from "react-i18next";
 
 const LogIn = () => {
     const { t } = useTranslation();
-    const { user, login, loading, error, logout } = useAuth();
+    const { user, login, loading, error, logout, clearError } = useAuth();
     const [username, setUsername] = useState('');
     const [password, setPassword] = useState('');
     const navigate = useNavigate();
@@ -58,12 +58,12 @@ const LogIn = () => {
                     />
                 </div>
                 <div className='error-button-container'>
-                    {error && <p className='error-message'>{error}</p>}
+                    {error ? <p className='error-message'>{error}</p> : <p></p>}
                     <div className='button-container push-right'>
                         <button type="submit" disabled={loading || !username || !password} className='login-button'>
                             {loading ? t("login_logging_in") : t("login_button")}
                         </button>
-                        <button type="reset" onClick={() => { setUsername(''); setPassword(''); }} disabled={loading || (!username && !password)}>
+                        <button type="reset" onClick={() => { setUsername(''); setPassword(''); clearError();}} disabled={loading || (!username && !password)}>
                             {t("login_reset")}
                         </button>
                     </div>

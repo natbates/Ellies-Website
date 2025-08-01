@@ -42,6 +42,10 @@ export const AuthProvider = ({ children }) => {
         sessionStorage.removeItem("user");
     };
 
+    const clearError = () => {
+        setError(null);
+    }
+
     // Optional: keep sessionStorage in sync if user changes elsewhere
     useEffect(() => {
         if (user) {
@@ -52,7 +56,7 @@ export const AuthProvider = ({ children }) => {
     }, [user]);
 
     return (
-        <AuthContext.Provider value={{ user, loading, error, login, logout }}>
+        <AuthContext.Provider value={{ user, loading, error, login, logout, clearError }}>
             {children}
         </AuthContext.Provider>
     );

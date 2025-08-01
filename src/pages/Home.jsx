@@ -61,7 +61,7 @@ const Packages = () => {
     return (
         <div ref={ref} className={`packages fade-in${visible ? " visible" : ""}`}>
             <h2 className={`packages-title packages-anim${visible ? " packages-anim-visible" : ""}`}>{t("packages_title")}</h2>
-            <p className="package-intro">{t("packages_intro")}</p>
+            <p className={`package-intro packages-anim${visible ? " packages-anim-visible packages-anim-delay" : ""}`}>{t("packages_intro")}</p>
             <div className="package-columns">
                 <div className={`package-column packages-anim${visible ? " packages-anim-visible packages-anim-delay-1" : ""}`}>
                     <img
