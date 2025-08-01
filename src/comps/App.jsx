@@ -12,13 +12,13 @@ import Weddings from "../pages/services/Weddings";
 import Restaurants from "../pages/services/Restaurants";
 import Maternity from "../pages/services/Maternity";
 import Private from "../pages/services/Private";
+import LogIn from "../pages/boring/LogIn";
 
 import "../styles/App.css";
 
 const App = () => {
     return (
         <div className="page-container">
-
 
             <div className="flower-pattern-border" />
 
@@ -37,7 +37,9 @@ const App = () => {
                         <Route path="/restaurants" element={<Restaurants />} />
                         <Route path="/maternity" element={<Maternity />} />
                         <Route path="/private" element={<Private />} />
-                        
+
+                        <Route path="/login" element={<LogIn />} />
+
                         <Route path="*" element={<NotFound />} />
 
                     </Routes>

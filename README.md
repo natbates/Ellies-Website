@@ -2,11 +2,10 @@
 
 // to do
 
+mobile view: gallery, services
 
-cursor follow design
+map animation
 
-scroll to top button
+mobile nav bar finish
 
-languagee changer
-
-social links
+middle ground media querys

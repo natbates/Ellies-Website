@@ -1,0 +1,32 @@
+.language-switcher {
+    position: fixed;
+    top: 18px;
+    left: 18px;
+    z-index: 11;
+    display: flex;
+    border: 1px solid #00000067;
+}
+
+.language-switcher button {
+    background: none;
+    border: none;
+    color: #222;
+    font-size: 1rem;
+    padding: 4px 10px;
+    cursor: pointer;
+    opacity: 0.4;
+    
+    transition: opacity 0.2s, color 0.2s;
+}
+
+
+.flag-toggle 
+{
+    opacity: 1 !important;
+    padding: 0 0 !important;
+}
+
+.language-switcher button.active,
+.language-switcher button:hover {
+    opacity: 1;
+}

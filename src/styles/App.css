@@ -7,6 +7,11 @@
 }
 
 
+#root
+{
+    position: relative;
+}
+
 *
 {
     box-sizing: border-box;
@@ -14,10 +19,18 @@
     padding: 0;
 }
 
-html
-{
+html {
     scroll-behavior: smooth;
-    background-color: var(--background-color, black)
+    background-color: var(--background-color, black);
+    overflow-y: scroll; /* Always show vertical scrollbar */
+}
+
+.no-scroll {
+  overflow: hidden !important;
+  height: 100vh !important;
+  position: fixed !important;
+  width: 100vw !important;
+  overscroll-behavior: none !important;
 }
 
 .page-container
@@ -27,6 +40,7 @@ html
     min-height: 100vh;
     position: relative;
     align-items: center;
+    overflow: hidden;
 }
 
 .content
@@ -38,26 +52,55 @@ html
     position: relative;
 }
 
-.flower-pattern-border
-{
+.flower-pattern-border {
     position: absolute;
     top: 0;
-    left: 0px;
-    width: 90px;
+    left: -60px;
+    width: 190px;
     height: 100%;
-    background-image: url("../../public/images/flowers.jpg");
+    background-image: url("../../public/images/leaf1.png");
     background-size: contain;
     background-repeat: repeat-y;
-    opacity: 0.5;
-    z-index: -1;
+    background-position: center 100%;
+    transform-origin: center;
+    opacity: 1;
+    z-index: 20;
     transition: opacity 0.3s ease;
+    /* Remove this line: transform: rotate(180deg); */
+    transition: all 0.3s ease;
+    pointer-events: none;
+    animation: fly-in-left 0.5s ease-out forwards;
 }
 
-.flower-pattern-border.right
-{
-    left: auto;
-    right: 0;
+@keyframes fly-in-left {
+    from {
+        transform: translateX(-100%) rotate(180deg);
+        opacity: 0;
+    }
+    to {
+        transform: translateX(0) rotate(180deg);
+        opacity: 1;
+    }
+}
 
+.flower-pattern-border.right {
+    left: auto;
+    right: -60px;
+    height: calc(100% + 100px);
+    /* Add rotation for correct orientation */
+    transform: translateY(-200px) scaleX(-1) rotate(180deg);
+    animation: fly-in-right 0.5s ease-out forwards;
+}
+
+@keyframes fly-in-right {
+    from {
+        transform: translateX(100%) translateY(-200px) scaleX(-1) rotate(180deg);
+        opacity: 0;
+    }
+    to {
+        transform: translateX(0) translateY(-200px) scaleX(-1) rotate(180deg);
+        opacity: 1;
+    }
 }
 
 .page-divider
@@ -73,12 +116,15 @@ html
     margin: 90px 0;
 }
 
+.page-divider-delay {
+  transition-delay: 1s !important;
+}
+
 .centred-text
 {
     align-self: center;
     text-align: center;
 }
-
 
 .button-container
 {
@@ -96,6 +142,26 @@ html
 .button-container.push-left
 {
     justify-content: flex-start;
+}
+
+.not-found button
+{
+    margin-top: 20px;
+}
+
+.not-found span
+{
+    display: flex;
+    gap: 16px;
+    align-items: flex-end;
+    margin-bottom: 10px;
+}
+
+.not-found span .numbers
+{
+    font-size: 3rem;
+    color: var(--accent-color, black);
+    font-family: "QuickSand", sans-serif;
 }
 
 
@@ -121,7 +187,7 @@ p, li
     opacity: 0.7;
 }
 
-input, textarea
+input, textarea, select
 {
     font-family: "QuickSand", sans-serif;
     font-size: 1rem;
@@ -131,6 +197,7 @@ input, textarea
     outline: none;
     border-bottom: 1px solid rgb(0, 0, 0);
     padding: 8px;
+    padding-left: 0px;
 }
 
 label
@@ -154,12 +221,19 @@ button
     width: fit-content;
 }
 
+img, .map
+{
+    /* outline: 1px solid rgba(0, 0, 0, 0.233);
+    outline-offset: 4px;
+    outline-style: solid !important; */
+    border-radius: 0px !important;
+}
+
 button:disabled
 {
     opacity: 0.5;
     cursor: not-allowed;
 }
-
 
 @font-face {
     font-family: "PlatinumIvory";
@@ -194,9 +268,272 @@ button:disabled
     font-weight: bold;
 }
 
-@media (max-width: 1250px) {
+@media (max-width: 1150px) {
     .flower-pattern-border
     {
         opacity: 0;
     }
+}
+
+@media (max-width: 600px) { 
+    .flower-pattern-border
+    {
+        display: none;
+        width: 120px;
+        left: -80px;
+        z-index: -12;
+    }
+
+    .flower-pattern-border.right
+    {
+        right: -80px;
+        height: calc(100% + 120px);
+        transform: translateY(-220px) scaleX(-1) rotate(180deg);
+    }
+
+    .page-container
+    {
+        padding: 0px 15px;
+    }
+    
+    .language-switcher
+    {
+        position: absolute !important;
+        top: 24px !important;
+        left: 15px !important;
+        border: none !important;
+    }
+
+    .about-container h2, .packages-title, .client-title, .contact-title, .contact-intro
+    {
+        text-align: center;
+    }
+
+    .about-section
+    {
+        margin-top: 10px;
+        flex-direction: column-reverse;
+    }
+
+    .about-text
+    {
+        gap: 40px;
+        text-align: center;
+    }
+
+    .about-text button
+    {
+        margin-top: 50px !important;
+    }
+
+    .package-columns
+    {
+        gap: 60px;
+    }
+
+    .package-column h2
+    {
+        font-size: 1.2rem;
+        margin-top: 15px;
+    }
+
+    .clients-row-list
+    {
+        margin-top: 10px;
+    }
+
+    .client-row
+    {
+        flex-direction: column !important;
+        align-items: center;
+        gap: 24px;
+    }
+
+    .client-row img
+    {
+        width: 100%;
+    }
+
+    .contact .form-container
+    {
+        flex-direction: column;
+        gap: 20px;
+    }
+
+    .contact-form
+    {
+        margin-top: 10px;
+    }
+
+    .contact-form .button-container
+    {
+        margin-top: 0px !important;
+    }
+
+    .contact-info
+    {
+        width: 100% !important;
+    }
+
+    .contact-info img 
+    {
+        display: none;
+    }
+
+    .footer-content
+    {
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+        gap: 20px;
+    }
+
+    .location-text 
+    {
+        display: none;
+    }
+
+    .image-upload-container
+    {
+        flex-direction: column;
+        gap: 20px;
+    }
+
+    .gallery-type-buttons
+    {
+        flex-wrap: wrap;
+    }
+
+    .service-package-details
+    {
+        width: 100%;
+    }
+
+    .service-package-row
+    {
+        margin: 40px 0;
+    }
+    
+    .service-package-img
+    {
+        width: 100%;
+        height: 300px;
+        margin: 0 !important;
+    }
+
+    .page-divider-delay
+    {
+        animation-delay: 0s !important;
+    }
+
+}
+
+/* General Animations  */
+
+.fade-in 
+{
+  opacity: 0;
+  transform: translateY(40px);
+  transition: opacity 0.7s ease, transform 0.7s ease;
+}
+
+.fade-in.visible
+{
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.intro-anim {
+  opacity: 0;
+  transform: translateY(40px);
+  transition: opacity 0.7s cubic-bezier(.4,0,.2,1), transform 0.7s cubic-bezier(.4,0,.2,1);
+}
+
+.intro-anim-visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.intro-anim-delay-1 {
+  transition-delay: 0.25s;
+}
+
+.intro-anim-delay-2 {
+  transition-delay: 0.5s;
+}
+
+.about-anim {
+  opacity: 0;
+  transform: translateY(40px);
+  transition: opacity 0.7s cubic-bezier(.4,0,.2,1), transform 0.7s cubic-bezier(.4,0,.2,1);
+}
+.about-anim-visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+.about-anim-delay-1 {
+  transition-delay: 0.15s;
+}
+.about-anim-delay-2 {
+  transition-delay: 0.35s;
+}
+.about-anim-delay-3 {
+  transition-delay: 0.55s;
+}
+.about-anim-delay-4 {
+  transition-delay: 0.75s;
+}
+
+.packages-anim {
+  opacity: 0;
+  transform: translateY(40px);
+  transition: opacity 0.7s cubic-bezier(.4,0,.2,1), transform 0.7s cubic-bezier(.4,0,.2,1);
+}
+.packages-anim-visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+.packages-anim-delay-1 {
+  transition-delay: 0.25s;
+}
+.packages-anim-delay-2 {
+  transition-delay: 0.45s;
+}
+.packages-anim-delay-3 {
+  transition-delay: 0.65s;
+}
+
+.clients-anim {
+  opacity: 0;
+  transform: translateY(40px);
+  transition: opacity 0.7s cubic-bezier(.4,0,.2,1), transform 0.7s cubic-bezier(.4,0,.2,1);
+}
+.clients-anim-visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+.clients-anim-delay-1 {
+  transition-delay: 0.25s;
+}
+.clients-anim-delay-2 {
+  transition-delay: 0.45s;
+}
+.clients-anim-delay-3 {
+  transition-delay: 0.65s;
+}
+
+.location-anim {
+  opacity: 0;
+  transform: translateY(40px);
+  transition: opacity 0.7s cubic-bezier(.4,0,.2,1), transform 0.7s cubic-bezier(.4,0,.2,1);
+}
+.location-anim-visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+.location-anim-delay-1 {
+  transition-delay: 0.25s;
+}
+.location-anim-delay-2 {
+  transition-delay: 0.45s;
 }

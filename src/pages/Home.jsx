@@ -1,139 +1,195 @@
 import { useNavigate } from "react-router-dom";
 import "../styles/Home.css";
-
 import Contact from "./Contact";
+import MapComponent from "../comps/Map";
+import { useNotification } from "../contexts/NotificationContext.jsx";
+import { useTranslation } from "react-i18next";
+import useInView from "../hooks/useInView";
 
+const threshold = 0.4; // Adjust this value to control when the element is considered in view
+
+const PageDivider = () => {
+    const [ref, visible] = useInView({ threshold: 0.3 });
+    return (
+        <div
+            ref={ref}
+            className={`page-divider fade-in${visible ? " visible page-divider-delay" : ""}`}
+            alt="Page Divider"
+        />
+    );
+};
+
+const Intro = () => {
+    const { t } = useTranslation();
+    const [ref, visible] = useInView({ threshold: threshold });
+
+    return (
+        <div ref={ref} className={`intro-container fade-in${visible ? " visible" : ""}`}>
+            <img
+                className={`home-image intro-anim${visible ? " intro-anim-visible" : ""}`}
+                src="../images/weddings/DSC08190.jpg"
+                alt="Home Background"
+            />
+            <div className="home-text">
+                <h1 className={`home-title intro-anim${visible ? " intro-anim-visible intro-anim-delay-1" : ""}`}>
+                    {t("home_title")}
+                </h1>
+                <p className={`home-quote intro-anim${visible ? " intro-anim-visible intro-anim-delay-2" : ""}`}>
+                    {t("home_quote")}
+                </p>
+            </div>
+        </div>
+    );
+};
 
 const Packages = () => {
-
     const navigate = useNavigate();
+    const { t } = useTranslation();
+    const [ref, visible] = useInView({ threshold: threshold });
 
     var package_images = {
         Weddings: "../images/weddings/DSC00632.jpg",
         Maternity: "../images/maternity/DSC02507.jpg",
         Resturants: "../images/restaurants/DSC08988.jpg",
         Private_Events: "../images/private_events/DSC08073.jpg"
-    }
+    };
 
     return (
-        <div className="packages">
-
-            <h2 className="packages-title">Our Packages</h2>
-            <p>Choose from a variety of packages tailored to your needs and budget.</p>
-
+        <div ref={ref} className={`packages fade-in${visible ? " visible" : ""}`}>
+            <h2 className={`packages-title packages-anim${visible ? " packages-anim-visible" : ""}`}>{t("packages_title")}</h2>
+            <p className="package-intro">{t("packages_intro")}</p>
             <div className="package-columns">
-                <div className="package-column">
+                <div className={`package-column packages-anim${visible ? " packages-anim-visible packages-anim-delay-1" : ""}`}>
                     <img
                         src={package_images.Weddings}
-                        alt="Weddings"
+                        alt={t("package_weddings_title")}
                         className="package-img"
                         onClick={() => navigate("/weddings")}
                     />
-                    <h2>Weddings</h2>
-                    <p>Essential coverage for your event, capturing all the key moments with style and elegance.</p>
-                    <button onClick={() => navigate("/weddings")}>View Details</button>
+                    <h2>{t("package_weddings_title")}</h2>
+                    <p>{t("package_weddings_desc")}</p>
+                    <button onClick={() => navigate("/weddings")}>{t("package_view_details")}</button>
                 </div>
-                <div className="package-column">
+                <div className={`package-column packages-anim${visible ? " packages-anim-visible packages-anim-delay-2" : ""}`}>
                     <img
                         src={package_images.Maternity}
-                        alt="Maternities"
+                        alt={t("package_maternity_title")}
                         className="package-img"
                         onClick={() => navigate("/maternity")}
                     />
-                    <h2>Maternities</h2>
-                    <p>Extended coverage, more photos, and extra edits to ensure every detail is remembered.</p>
-                    <button onClick={() => navigate("/maternity")}>View Details</button>
+                    <h2>{t("package_maternity_title")}</h2>
+                    <p>{t("package_maternity_desc")}</p>
+                    <button onClick={() => navigate("/maternity")}>{t("package_view_details")}</button>
                 </div>
-                <div className="package-column">
+                <div className={`package-column packages-anim${visible ? " packages-anim-visible packages-anim-delay-3" : ""}`}>
                     <img
                         src={package_images.Resturants}
-                        alt="Restaurants"
+                        alt={t("package_restaurants_title")}
                         className="package-img"
                         onClick={() => navigate("/restaurants")}
                     />
-                    <h2>Restaurants</h2>
-                    <p>The full experience: all-day coverage, premium albums, and a personalized photo session.</p>
-                    <button onClick={() => navigate("/restaurants")}>View Details</button>
+                    <h2>{t("package_restaurants_title")}</h2>
+                    <p>{t("package_restaurants_desc")}</p>
+                    <button onClick={() => navigate("/restaurants")}>{t("package_view_details")}</button>
                 </div>
             </div>
         </div>
     );
-}
-
+};
 
 const About = () => {
-
     const navigate = useNavigate();
+    const { t } = useTranslation();
+    const [ref, visible] = useInView({ threshold: threshold });
 
     return (
-        <div className="about-container">
-            <h2 className="centred-text">Meet the Photographer</h2>
+        <div ref={ref} className={`about-container fade-in${visible ? " visible" : ""}`}>
+            <h2 className={`centred-text about-anim${visible ? " about-anim-visible" : ""}`}>{t("about_title")}</h2>
             <div className="about-section">
+
                 <div className="about-text">
-                    <div className="text-section">
-                        <h3>About Me</h3>
-                        <p>I'm a passionate photographer with a love for capturing life's most beautiful moments. With years of experience in weddings, maternity, and special events, I strive to create timeless images that tell your unique story.</p>
+                    <div className={`text-section about-anim${visible ? " about-anim-visible about-anim-delay-2" : ""}`}>
+                        <h3>{t("about_section_1_title")}</h3>
+                        <p>{t("about_section_1_text")}</p>
                     </div>
-                    <div className="text-section">
-                        <h3>My Vision</h3>
-                        <p>To create a visual narrative that reflects your unique story and personality.</p>
-                        <p>Whether it's a wedding, maternity shoot, or a private event, I aim to capture the essence of each moment with creativity and elegance.</p>
-                    </div>          
-                    <div className="text-section">
-                        <h3>Connect With Me</h3>
-                        <p>If you're interested in working together or have any questions, feel free to reach out through the contact form below.</p>
-                        <button style = {{marginTop: "30px"}} onClick={() => navigate("/contact")}>Book Me Now</button>
+                    <div className={`text-section about-anim${visible ? " about-anim-visible about-anim-delay-3" : ""}`}>
+                        <h3>{t("about_section_2_title")}</h3>
+                        <p>{t("about_section_2_text_1")}</p>
+                        <p>{t("about_section_2_text_2")}</p>
+                    </div>
+                    <div className={`text-section about-anim${visible ? " about-anim-visible about-anim-delay-4" : ""}`}>
+                        <h3>{t("about_section_3_title")}</h3>
+                        <p>{t("about_section_3_text")}</p>
+                        <button style={{ marginTop: "30px" }} onClick={() => navigate("/contact")}>
+                            {t("about_section_3_button")}
+                        </button>
                     </div>
                 </div>
-                <img className="about-image" src="../images/me/IMG_7453.jpg" alt="About Background" />
+                <img
+                    className={`about-image about-anim${visible ? " about-anim-visible about-anim-delay-1" : ""}`}
+                    src="../images/me/IMG_7453.jpg"
+                    alt="About Background"
+                />
             </div>
         </div>
     );
-}
+};
 
+const Location = () => {
+    const { t } = useTranslation();
+    const [ref, visible] = useInView({ threshold: 0.2 });
 
-const Galleries = () => {
-    const navigate = useNavigate();
+    return (
+        <div ref={ref} className={`location-container fade-in${visible ? " visible" : ""}`}>
+            <h2 className={`location-title location-anim${visible ? " location-anim-visible" : ""}`}>{t("location_title")}</h2>
+            <p className={`location-intro location-anim${visible ? " location-anim-visible location-anim-delay-1" : ""}`}>{t("location_intro")}</p>
+            <MapComponent />
+            <div className={`location-text location-anim${visible ? " location-anim-visible location-anim-delay-2" : ""}`}>
+                <p>{t("location_text")}</p>
+            </div>
+        </div>
+    );
+};
 
-    const galleryItems = [
+const Clients = () => {
+    const { t } = useTranslation();
+    const [ref, visible] = useInView({ threshold: 0.2 });
+
+    const clientData = [
         {
-            label: "Weddings",
-            img: "../images/weddings/DSC00632.jpg",
-            link: "/gallery/weddings",
+            img: "../images/fashion/63F08F85-2BBE-47DC-A287-6DDB7370A55F.jpg",
+            title: t("client_1_name"),
+            text: t("client_1_feedback")
         },
         {
-            label: "Restaurants",
-            img: "../images/restaurants/DSC08988.jpg",
-            link: "/gallery/restaurants",
+            img: "../images/fashion/DSC00739 copy.jpg",
+            title: t("client_2_name"),
+            text: t("client_2_feedback")
         },
         {
-            label: "Maternity",
-            img: "../images/maternity/DSC02507.jpg",
-            link: "/gallery/maternity",
-        },
-        {
-            label: "Private Events",
-            img: "../images/private_events/DSC08073.jpg",
-            link: "/gallery/private",
+            img: "../images/maternity/DSC01958.jpg",
+            title: t("client_3_name"),
+            text: t("client_3_feedback")
         }
     ];
 
     return (
-        <div className="galleries">
-            <h2 className="centred-text">Explore My Work</h2>
-            <div className="gallery-list">
-                {galleryItems.map(item => (
+        <div ref={ref} className={`clients-container fade-in${visible ? " visible" : ""}`}>
+            <h2 className={`client-title clients-anim${visible ? " clients-anim-visible" : ""}`}>{t("clients_title")}</h2>
+            <div className="clients-row-list">
+                {clientData.map((client, idx) => (
                     <div
-                        className="gallery-item"
-                        key={item.label}
-                        onClick={() => navigate(item.link)}
+                        className={`client-row clients-anim${visible ? " clients-anim-visible clients-anim-delay-" + (idx + 1) : ""}${idx % 2 === 1 ? " reverse" : ""}`}
+                        key={client.title}
                     >
                         <img
-                            src={item.img}
-                            alt={item.label}
+                            src={client.img}
+                            alt={client.title}
+                            className="client-photo"
                         />
-                        <div>
-                            <h3 style={{ margin: 0 }}>{item.label}</h3>
+                        <div className="client-info">
+                            <h3 className="client-name">{client.title}</h3>
+                            <p className="client-feedback-text">"{client.text}"</p>
                         </div>
                     </div>
                 ))}
@@ -142,64 +198,22 @@ const Galleries = () => {
     );
 };
 
-
-const Clients = () => {
+const Home = () => {
     return (
-        <div className="clients-container">
-            <div className="clients">
-                <h2 className="client-title">What My Clients Think</h2>
-                <div className="client-feedback">
-                    <p>"Absolutely stunning work! You captured our special day perfectly."</p>
-                    <p>"The attention to detail and creativity in every shot is amazing."</p>
-                    <p>"We couldn't be happier with our photos. Thank you for your incredible talent!"</p>
-                </div>
-            </div>
-            <div className="client-locations">
-                <h2>Locations</h2>
-                <ul>
-
-                </ul>
-            </div>
+        <div className="home-page">
+            <Intro />
+            <PageDivider />
+            <About />
+            <PageDivider />
+            <Packages />
+            <PageDivider />
+            <Clients />
+            <PageDivider />
+            <Location />
+            <PageDivider />
+            <Contact />
         </div>
     );
 };
-
-const Home = () => {
-
-    return (
-        <div className="home-page">
-            
-            <img className="home-image" src="../images/weddings/DSC08190.jpg" alt="Home Background" />
-
-            <div className="home-text">
-                <h1 className="home-title">Forever begins with a single beautiful moment captured</h1>
-                <p className="home-quote">
-                    Capturing the magic of weddings, maternity, and special events with a creative eye.<br />
-                    Turning real moments into timeless, elegant photographs you'll cherish forever.<br />
-                    Dedicated to making your memories last a lifetime.
-                </p>
-            </div>
-
-            <div className="page-divider" alt="Page Divider" />
-
-            <Packages />
-
-            <div className="parallax-bg other">
-
-
-                <Clients/ >
-
-            </div>
-
-            <About />
-
-            <div className="parallax-bg"></div>
-            
-
-            <Contact />
-
-        </div>
-    );
-}
 
 export default Home;

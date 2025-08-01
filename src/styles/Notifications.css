@@ -1,0 +1,36 @@
+.notification-container
+{
+    position: fixed; 
+    top: 40px;
+    right: 40px;
+    width: 300px;
+    max-height: 100%;
+    overflow-y: auto;
+    z-index: 9999;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    gap: 10px;
+}
+
+.notification-toast {
+    z-index: 9999;
+    background: #ffffff;
+    color: #000000;
+    border: 1px solid #000000;
+    padding: 5px 18px;
+    font-size: 0.8rem;
+    width: fit-content;
+    text-align: center;
+    transition: opacity 0.3s;
+    opacity: 1;
+    font-family: "QuickSand", sans-serif;
+}
+
+.notification-toast.error {
+    color: rgb(231, 92, 92) !important;
+}
+
+.notification-toast.success {
+    color: #80b667 !important;
+}
